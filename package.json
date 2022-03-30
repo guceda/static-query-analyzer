@@ -1,13 +1,25 @@
 {
-  "name": "query-exec",
+  "name": "static-query-analyzer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "npx tsc"
+    "prepublish": "tsc",
+    "clean": "rm -rf ./dist",
+    "start": "npx nodemon src/index.ts",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' "
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node-sql-parser": "^1.1.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "node-sql-parser": "^4.2.0"
+  }
 }
