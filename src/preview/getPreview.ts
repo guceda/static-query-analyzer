@@ -99,8 +99,8 @@ export const getAST = (selection: string) => {
 };
 
 const getPreview = (selection: string) => {
-  const { ast } = getAST(selection);
   try {
+    const { ast } = getAST(selection);
     const result = PreviewVisitor.of().visitNode(ast) as unknown as Result;
     const prepared = prepare(result);
     const completed = complete(prepared);
